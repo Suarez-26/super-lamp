@@ -4,824 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel El Rincón del Carmen</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-        h1, h2, h3, .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
-        .swiper-button-next, .swiper-button-prev {
-            color: white;
-            background-color: rgba(0,0,0,0.3);
-            border-radius: 9999px;
-            width: 44px;
-            height: 44px;
-        }
-        .swiper-button-next:after, .swiper-button-prev:after {
-            font-size: 24px;
-        }
-        .page {
-            display: none;
-        }
-        .page.active {
-            display: block;
-        }
-        .modal {
-            display: none;
-        }
-        .modal.active {
-            display: flex;
-        }
-        [x-cloak] { display: none !important; }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
+    <!--barra de navegación-->
+<header class="cabecera">
+    <div class="navbar-contenedor">
+        <div class="logo">
+            <h1>Hotel El Rincón del Carmen</h1>
+        </div>
+        <nav class="navegacion">
+            <a href="index.html">Inicio</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+        <div class="usuario-saludo" id="usuario-saludo"></div>
+    </div>
+</header>
+            <!--Landing page-->
+<section class="seccion-hero">
+    <div class="hero-overlay">
+      <div class="hero-contenido">
+        <h1>Tu Santuario de Paz y Confort</h1>
+        <p>Experimenta una estancia inolvidable en el corazón de la ciudad, donde el lujo y la comodidad se encuentran.</p>
+        <a href="reservas.html" class="btn-registro">Reservar Ahora</a>
+      </div>
+    </div>
+</section>
 
-    <!-- Contenedor Principal de la App -->
-    <div id="app" class="min-h-screen">
-
-        <!-- Header -->
-        <header class="bg-white shadow-md sticky top-0 z-40">
-            <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold text-amber-800 font-serif" data-page="home">El Rincón del Carmen</a>
-                <div class="hidden md:flex space-x-6 items-center">
-                    <a href="#" class="text-gray-600 hover:text-amber-700 transition duration-300" data-page="home">Inicio</a>
-                    <a href="#" class="text-gray-600 hover:text-amber-700 transition duration-300" data-page="booking">Reservas</a>
-                    <a href="#" class="text-gray-600 hover:text-amber-700 transition duration-300" data-page="contact">Contacto</a>
-                </div>
-                <div id="user-session" class="space-x-4">
-                    <!-- Esto se llenará dinámicamente -->
-                </div>
-                 <button id="mobile-menu-button" class="md:hidden">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </nav>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-                 <a href="#" class="block text-gray-600 hover:text-amber-700" data-page="home">Inicio</a>
-                 <a href="#" class="block text-gray-600 hover:text-amber-700" data-page="booking">Reservas</a>
-                 <a href="#" class="block text-gray-600 hover:text-amber-700" data-page="contact">Contacto</a>
+    <main>
+        <!-- carrusel de habitaciones-->
+        <section class="carrusel">
+            <h2>Nuestras Habitaciones</h2>
+            <div class="carrusel-imagenes">
+                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Habitación 1">
+                <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Habitación 2">
+                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Habitación 3">
             </div>
-        </header>
-
-        <!-- Contenido de las páginas -->
-        <main>
-            <!-- Página de Inicio -->
-            <section id="home-page" class="page active">
-                <!-- Hero Section -->
-                <div class="relative h-[60vh] md:h-[80vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                        <div class="text-center text-white p-4">
-                            <h1 class="text-4xl md:text-6xl font-bold font-serif mb-4">Tu Santuario de Paz y Confort</h1>
-                            <p class="text-lg md:text-xl mb-8">Experimenta una estancia inolvidable en el corazón de la ciudad.</p>
-                            <button class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition duration-300" data-page="booking">Reservar Ahora</button>
-                        </div>
-                    </div>
+        </section>
+    
+        <!-- servicios de hotel-->
+        <section class="seccion-servicios">
+            <h1>Servicios</h1>
+        
+            <div class="contenedor-grid">
+              <article class="servicio-card">
+                <img src="images/gastronomia" alt="gastronomia">
+                <div class="servicio-contenido">
+                  <h2>Gastronomía</h2>
+                  <p>Sabores que deleitan, platos que enamoran.</p>
                 </div>
-
-                <!-- Carousel de Habitaciones -->
-                <div class="container mx-auto px-6 py-12">
-                    <h2 class="text-3xl font-bold text-center text-amber-800 mb-8 font-serif">Nuestras Habitaciones</h2>
-                    <div class="swiper room-swiper">
-                        <div class="swiper-wrapper" id="room-carousel-wrapper">
-                            <!-- Las habitaciones se insertan aquí -->
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
+              </article>
+        
+              <article class="servicio-card">
+                <img src="images/spa y bienestar" alt="spa y bienestar">
+                <div class="servicio-contenido">
+                  <h2>Spa y Bienestar</h2>
+                  <p>Un refugio para renovar cuerpo y alma.</p>
                 </div>
-
-                 <!-- Servicios -->
-                <div class="bg-amber-50 py-12">
-                    <div class="container mx-auto px-6">
-                        <h2 class="text-3xl font-bold text-center text-amber-800 mb-8 font-serif">Servicios Exclusivos</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                            <div class="p-4">
-                                <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Gastronomía" class="w-full h-48 object-cover rounded-lg shadow-lg mb-4">
-                                <h3 class="text-xl font-semibold text-amber-900">Gastronomía</h3>
-                                <p class="text-gray-600 mt-2">Sabores que deleitan, platos que enamoran.</p>
-                            </div>
-                            <div class="p-4">
-                                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Spa" class="w-full h-48 object-cover rounded-lg shadow-lg mb-4">
-                                <h3 class="text-xl font-semibold text-amber-900">Spa y Bienestar</h3>
-                                <p class="text-gray-600 mt-2">Un refugio para renovar cuerpo y alma.</p>
-                            </div>
-                            <div class="p-4">
-                                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Piscina" class="w-full h-48 object-cover rounded-lg shadow-lg mb-4">
-                                <h3 class="text-xl font-semibold text-amber-900">Zonas Húmedas</h3>
-                                <p class="text-gray-600 mt-2">Sumérgete en la tranquilidad de nuestras piscinas.</p>
-                            </div>
-                        </div>
-                    </div>
+              </article>
+        
+              <article class="servicio-card">
+                <img src="images/zonas humedas" alt="zonas humedas">
+                <div class="servicio-contenido">
+                  <h2>Zonas Húmedas</h2>
+                  <p>Sumérgete en la tranquilidad de nuestras piscinas.</p>
                 </div>
-            </section>
-
-            <!-- Página de Reservas -->
-            <section id="booking-page" class="page">
-                <div class="container mx-auto px-6 py-12">
-                    <h2 class="text-3xl font-bold text-center text-amber-800 mb-8 font-serif">Consulta Disponibilidad</h2>
-                    <div class="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
-                            <div>
-                                <label for="check-in" class="block text-sm font-medium text-gray-700">Llegada</label>
-                                <input type="date" id="check-in" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500">
-                            </div>
-                            <div>
-                                <label for="check-out" class="block text-sm font-medium text-gray-700">Salida</label>
-                                <input type="date" id="check-out" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500">
-                            </div>
-                            <div>
-                                <label for="guests" class="block text-sm font-medium text-gray-700">Huéspedes</label>
-                                <input type="number" id="guests" min="1" value="1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500">
-                            </div>
-                            <button id="search-availability" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded-md w-full">Buscar</button>
-                        </div>
-                    </div>
-
-                    <div id="availability-results" class="mt-12">
-                       <!-- Los resultados se mostrarán aquí -->
-                    </div>
+              </article>
+              <article class="servicio-card">
+                <img src="images/zonas humedas" alt="zonas humedas">
+                <div class="servicio-contenido">
+                  <h2>Zonas Húmedas</h2>
+                  <p>Sumérgete en la tranquilidad de nuestras piscinas.</p>
                 </div>
-            </section>
-
-            <!-- Página de Contacto -->
-            <section id="contact-page" class="page">
-                <div class="container mx-auto px-6 py-12">
-                    <h2 class="text-3xl font-bold text-center text-amber-800 mb-8 font-serif">Contáctanos</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <div class="bg-white p-8 rounded-lg shadow-lg">
-                            <h3 class="text-2xl font-semibold text-amber-900 mb-4">Nuestra Ubicación</h3>
-                            <p class="text-gray-600 mb-2"><span class="font-bold">Dirección:</span> Calle Ficticia 123, Ciudad del Carmen</p>
-                            <p class="text-gray-600 mb-2"><span class="font-bold">Teléfono:</span> +57 300 123 4567</p>
-                            <p class="text-gray-600 mb-4"><span class="font-bold">Email:</span> contacto@rincondelcarmen.com</p>
-                            <div class="aspect-w-16 aspect-h-9">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.39570779774!2d-74.08389698522437!3d4.60971039657501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a1a67addf9%3A0x675f4b0d0c48e42f!2sPlaza%20de%20Bol%C3%ADvar!5e0!3m2!1ses!2sco!4v1678886564345!5m2!1ses!2sco" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-md"></iframe>
-                            </div>
-                        </div>
-                        <div class="bg-white p-8 rounded-lg shadow-lg">
-                             <h3 class="text-2xl font-semibold text-amber-900 mb-4">Envíanos un mensaje</h3>
-                             <form>
-                                 <div class="mb-4">
-                                     <label for="contact-name" class="block text-sm font-medium text-gray-700">Nombre</label>
-                                     <input type="text" id="contact-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500">
-                                 </div>
-                                 <div class="mb-4">
-                                     <label for="contact-email" class="block text-sm font-medium text-gray-700">Email</label>
-                                     <input type="email" id="contact-email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500">
-                                 </div>
-                                 <div class="mb-4">
-                                     <label for="contact-message" class="block text-sm font-medium text-gray-700">Mensaje</label>
-                                     <textarea id="contact-message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"></textarea>
-                                 </div>
-                                 <button type="submit" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded-md w-full">Enviar Mensaje</button>
-                             </form>
-                        </div>
-                    </div>
+              </article>
+              <article class="servicio-card">
+                <img src="images/zonas humedas" alt="zonas humedas">
+                <div class="servicio-contenido">
+                  <h2>Zonas Húmedas</h2>
+                  <p>Sumérgete en la tranquilidad de nuestras piscinas.</p>
                 </div>
-            </section>
-            
-            <!-- Página de Perfil/Mis Reservas -->
-            <section id="profile-page" class="page">
-                <div class="container mx-auto px-6 py-12">
-                    <h2 class="text-3xl font-bold text-center text-amber-800 mb-8 font-serif">Mis Reservas</h2>
-                    <div id="my-reservations-list" class="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
-                        <!-- Las reservas del usuario se mostrarán aquí -->
-                    </div>
+              </article>
+              <article class="servicio-card">
+                <img src="images/zonas humedas" alt="zonas humedas">
+                <div class="servicio-contenido">
+                  <h2>Zonas Húmedas</h2>
+                  <p>Sumérgete en la tranquilidad de nuestras piscinas.</p>
                 </div>
-            </section>
-
-            <!-- Panel de Administración -->
-            <section id="admin-page" class="page">
-                 <div class="container mx-auto px-6 py-12">
-                    <h2 class="text-3xl font-bold text-center text-amber-800 mb-8 font-serif">Panel de Administración</h2>
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-semibold text-amber-900 mb-6">Gestionar Habitaciones</h3>
-                        <div id="admin-room-list" class="space-y-4 mb-8">
-                            <!-- Lista de habitaciones para admin -->
-                        </div>
-                        <button id="add-room-btn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md">Agregar Nueva Habitación</button>
-                        
-                        <h3 class="text-2xl font-semibold text-amber-900 mt-12 mb-6">Gestionar Reservas</h3>
-                        <div id="admin-reservation-list" class="space-y-4">
-                           <!-- Lista de todas las reservas -->
-                        </div>
-                    </div>
-                 </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="bg-gray-800 text-white mt-12">
-            <div class="container mx-auto px-6 py-8 text-center">
-                <p>&copy; 2025 Hotel El Rincón del Carmen. Todos los derechos reservados.</p>
+              </article>
             </div>
-        </footer>
+        
 
-    </div>
+          </section>
+    </main>
 
-    <!-- Modals -->
-    <!-- Modal de Login -->
-    <div id="login-modal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50">
-        <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-sm">
-            <h2 class="text-2xl font-bold text-center mb-6">Iniciar Sesión</h2>
-            <form id="login-form">
-                <div class="mb-4">
-                    <label for="login-email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" id="login-email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500">
-                </div>
-                <div class="mb-6">
-                    <label for="login-password" class="block text-sm font-medium text-gray-700">Contraseña</label>
-                    <input type="password" id="login-password" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500">
-                </div>
-                <button type="submit" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded-md w-full mb-4">Ingresar</button>
-                <button type="button" class="close-modal-btn w-full text-center text-gray-500 hover:text-gray-700">Cancelar</button>
-            </form>
-        </div>
-    </div>
-    
-    <!-- Modal de Registro -->
-    <div id="register-modal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50">
-         <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md">
-            <h2 class="text-2xl font-bold text-center mb-6">Registro de Usuario</h2>
-            <form id="register-form">
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="text" id="register-id" placeholder="Número de Identificación" required class="rounded-md border-gray-300">
-                    <input type="text" id="register-name" placeholder="Nombre Completo" required class="rounded-md border-gray-300">
-                    <input type="text" id="register-nationality" placeholder="Nacionalidad" required class="rounded-md border-gray-300">
-                    <input type="email" id="register-email" placeholder="Email" required class="rounded-md border-gray-300">
-                    <input type="tel" id="register-phone" placeholder="Teléfono" required class="rounded-md border-gray-300">
-                    <input type="password" id="register-password" placeholder="Contraseña" required class="rounded-md border-gray-300">
-                </div>
-                <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md w-full mt-6 mb-4">Registrarse</button>
-                <button type="button" class="close-modal-btn w-full text-center text-gray-500 hover:text-gray-700">Cancelar</button>
-            </form>
-        </div>
-    </div>
-    
-    <!-- Modal para Habitación (Admin) -->
-    <div id="room-modal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50">
-        <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-lg">
-            <h2 id="room-modal-title" class="text-2xl font-bold text-center mb-6">Gestionar Habitación</h2>
-            <form id="room-form">
-                <input type="hidden" id="room-id">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="text" id="room-name" placeholder="Nombre de Habitación" required class="rounded-md border-gray-300">
-                    <input type="number" id="room-beds" placeholder="N° de Camas" min="1" required class="rounded-md border-gray-300">
-                    <input type="number" id="room-maxOccupancy" placeholder="Máx. Personas" min="1" required class="rounded-md border-gray-300">
-                    <input type="number" id="room-pricePerNight" placeholder="Precio por Noche" min="1" required class="rounded-md border-gray-300">
-                    <input type="text" id="room-amenities" placeholder="Servicios (coma-separado)" required class="rounded-md border-gray-300 md:col-span-2">
-                    <input type="text" id="room-image" placeholder="URL de la imagen" required class="rounded-md border-gray-300 md:col-span-2">
-                </div>
-                <div class="flex justify-end space-x-4 mt-6">
-                    <button type="button" class="close-modal-btn text-gray-500 hover:text-gray-700">Cancelar</button>
-                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">Guardar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    
-    <!-- Modal de Notificación -->
-    <div id="notification-modal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50">
-        <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-sm text-center">
-            <p id="notification-message" class="text-lg mb-6"></p>
-            <button class="close-modal-btn bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-md">Aceptar</button>
-        </div>
-    </div>
+    <footer class="pie-pagina">
+        <p>&copy; 2025 Hotel El Rincón del Carmen</p>
+    </footer>
 
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        // Simulación de Base de Datos en LocalStorage
-        const DB = {
-            get: (key) => JSON.parse(localStorage.getItem(key) || '[]'),
-            set: (key, data) => localStorage.setItem(key, JSON.stringify(data)),
-            init: () => {
-                if (!localStorage.getItem('users')) {
-                    const adminUser = {
-                        id: 'admin',
-                        name: 'Administrador',
-                        email: 'admin@hotel.com',
-                        password: 'admin', // En un caso real, esto estaría hasheado
-                        isAdmin: true,
-                    };
-                    DB.set('users', [adminUser]);
-                }
-                if (!localStorage.getItem('rooms')) {
-                    const defaultRooms = [
-                        { id: 1, name: 'Suite Deluxe', beds: 1, maxOccupancy: 2, pricePerNight: 500000, amenities: ['Jacuzzi', 'Minibar', 'Wi-Fi', 'TV 55"'], image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
-                        { id: 2, name: 'Habitación Doble', beds: 2, maxOccupancy: 4, pricePerNight: 350000, amenities: ['Wi-Fi', 'TV 42"'], image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
-                        { id: 3, name: 'Habitación Familiar', beds: 3, maxOccupancy: 5, pricePerNight: 450000, amenities: ['Wi-Fi', 'TV 42"', 'Minibar'], image: 'https://images.unsplash.com/photo-1590490359854-dfba59585b73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
-                        { id: 4, name: 'Habitación Sencilla', beds: 1, maxOccupancy: 1, pricePerNight: 200000, amenities: ['Wi-Fi', 'TV 32"'], image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
-                    ];
-                    DB.set('rooms', defaultRooms);
-                }
-                if (!localStorage.getItem('reservations')) {
-                    DB.set('reservations', []);
-                }
-            }
-        };
-
-        // Estado de la Aplicación
-        const AppState = {
-            currentUser: null,
-            currentPage: 'home',
-            searchCriteria: {},
-        };
-
-        // Lógica de la Aplicación
-        document.addEventListener('DOMContentLoaded', () => {
-            DB.init();
-            
-            const App = {
-                // Selectores de DOM
-                dom: {
-                    pages: document.querySelectorAll('.page'),
-                    modals: document.querySelectorAll('.modal'),
-                    navLinks: document.querySelectorAll('nav a, .container button[data-page]'),
-                    mobileMenuButton: document.getElementById('mobile-menu-button'),
-                    mobileMenu: document.getElementById('mobile-menu'),
-                    userSession: document.getElementById('user-session'),
-                    loginModal: document.getElementById('login-modal'),
-                    registerModal: document.getElementById('register-modal'),
-                    roomModal: document.getElementById('room-modal'),
-                    notificationModal: document.getElementById('notification-modal'),
-                    notificationMessage: document.getElementById('notification-message'),
-                    loginForm: document.getElementById('login-form'),
-                    registerForm: document.getElementById('register-form'),
-                    roomCarouselWrapper: document.getElementById('room-carousel-wrapper'),
-                    availabilityResults: document.getElementById('availability-results'),
-                    searchButton: document.getElementById('search-availability'),
-                    myReservationsList: document.getElementById('my-reservations-list'),
-                    adminRoomList: document.getElementById('admin-room-list'),
-                    adminReservationList: document.getElementById('admin-reservation-list'),
-                    addRoomBtn: document.getElementById('add-room-btn'),
-                    roomForm: document.getElementById('room-form'),
-                },
-
-                // Inicialización
-                init() {
-                    this.bindEvents();
-                    this.checkSession();
-                    this.renderHomePageContent();
-                    this.navigateTo('home');
-                },
-
-                // Eventos
-                bindEvents() {
-                    // Navegación
-                    this.dom.navLinks.forEach(link => {
-                        link.addEventListener('click', e => {
-                            e.preventDefault();
-                            this.navigateTo(link.dataset.page);
-                        });
-                    });
-
-                    // Menú móvil
-                    this.dom.mobileMenuButton.addEventListener('click', () => {
-                        this.dom.mobileMenu.classList.toggle('hidden');
-                    });
-                    
-                    // Modales
-                    document.body.addEventListener('click', e => {
-                        if (e.target.matches('.open-login-modal')) {
-                            this.openModal('login-modal');
-                        }
-                        if (e.target.matches('.open-register-modal')) {
-                            this.openModal('register-modal');
-                        }
-                        if (e.target.matches('.close-modal-btn')) {
-                            this.closeAllModals();
-                        }
-                        if (e.target.id === 'logout-btn') {
-                            this.logout();
-                        }
-                    });
-
-                    // Formularios
-                    this.dom.loginForm.addEventListener('submit', this.handleLogin.bind(this));
-                    this.dom.registerForm.addEventListener('submit', this.handleRegister.bind(this));
-                    this.dom.roomForm.addEventListener('submit', this.handleRoomSave.bind(this));
-
-                    // Acciones específicas
-                    this.dom.searchButton.addEventListener('click', this.handleSearch.bind(this));
-                    this.dom.addRoomBtn.addEventListener('click', () => this.openRoomModal());
-                    this.dom.availabilityResults.addEventListener('click', e => {
-                         if (e.target.matches('.book-room-btn')) {
-                             this.handleBooking(e.target.dataset.roomId);
-                         }
-                    });
-                    document.body.addEventListener('click', e => {
-                        // Admin: Editar/Eliminar Habitación
-                        if(e.target.matches('.edit-room-btn')) this.openRoomModal(e.target.dataset.roomId);
-                        if(e.target.matches('.delete-room-btn')) this.handleDeleteRoom(e.target.dataset.roomId);
-                        // Admin: Cancelar Reserva
-                        if(e.target.matches('.admin-cancel-reservation-btn')) this.handleCancelReservation(e.target.dataset.reservationId, true);
-                        // User: Cancelar Reserva
-                        if(e.target.matches('.user-cancel-reservation-btn')) this.handleCancelReservation(e.target.dataset.reservationId, false);
-                    });
-                },
-
-                // Navegación
-                navigateTo(pageId) {
-                    if (!pageId) return;
-                    AppState.currentPage = pageId;
-                    this.dom.pages.forEach(p => p.classList.remove('active'));
-                    const targetPage = document.getElementById(`${pageId}-page`);
-                    if (targetPage) {
-                        targetPage.classList.add('active');
-                        window.scrollTo(0, 0);
-                        // Cargar contenido dinámico al navegar
-                        if (pageId === 'profile' && AppState.currentUser) this.renderMyReservations();
-                        if (pageId === 'admin' && AppState.currentUser?.isAdmin) this.renderAdminDashboard();
-                    }
-                    this.dom.mobileMenu.classList.add('hidden');
-                },
-
-                // Modales
-                openModal(modalId) {
-                    this.closeAllModals();
-                    document.getElementById(modalId).classList.add('active');
-                },
-                closeAllModals() {
-                    this.dom.modals.forEach(m => m.classList.remove('active'));
-                },
-                showNotification(message) {
-                    this.dom.notificationMessage.textContent = message;
-                    this.openModal('notification-modal');
-                },
-
-                // Sesión y Autenticación
-                checkSession() {
-                    const user = JSON.parse(sessionStorage.getItem('currentUser'));
-                    if (user) {
-                        AppState.currentUser = user;
-                    }
-                    this.renderUserSession();
-                },
-                
-                renderUserSession() {
-                    let html = '';
-                    if (AppState.currentUser) {
-                        html = `
-                            <button class="text-gray-600 hover:text-amber-700" data-page="profile">Hola, ${AppState.currentUser.name.split(' ')[0]}</button>
-                            ${AppState.currentUser.isAdmin ? '<button class="text-gray-600 hover:text-amber-700" data-page="admin">Admin</button>' : ''}
-                            <button id="logout-btn" class="bg-amber-600 hover:bg-amber-700 text-white text-sm font-bold py-2 px-3 rounded-full">Salir</button>
-                        `;
-                    } else {
-                        html = `
-                            <button class="open-login-modal text-gray-600 hover:text-amber-700">Iniciar Sesión</button>
-                            <button class="open-register-modal bg-amber-600 hover:bg-amber-700 text-white text-sm font-bold py-2 px-3 rounded-full">Registrarse</button>
-                        `;
-                    }
-                    this.dom.userSession.innerHTML = html;
-                },
-
-                handleLogin(e) {
-                    e.preventDefault();
-                    const email = this.dom.loginForm.querySelector('#login-email').value;
-                    const password = this.dom.loginForm.querySelector('#login-password').value;
-                    const users = DB.get('users');
-                    const user = users.find(u => u.email === email && u.password === password);
-
-                    if (user) {
-                        AppState.currentUser = user;
-                        sessionStorage.setItem('currentUser', JSON.stringify(user));
-                        this.renderUserSession();
-                        this.closeAllModals();
-                        this.dom.loginForm.reset();
-                    } else {
-                        this.showNotification('Email o contraseña incorrectos.');
-                    }
-                },
-
-                logout() {
-                    AppState.currentUser = null;
-                    sessionStorage.removeItem('currentUser');
-                    this.renderUserSession();
-                    this.navigateTo('home');
-                },
-
-                handleRegister(e) {
-                    e.preventDefault();
-                    const users = DB.get('users');
-                    const newUser = {
-                        id: document.getElementById('register-id').value,
-                        name: document.getElementById('register-name').value,
-                        nationality: document.getElementById('register-nationality').value,
-                        email: document.getElementById('register-email').value,
-                        phone: document.getElementById('register-phone').value,
-                        password: document.getElementById('register-password').value,
-                        isAdmin: false,
-                    };
-
-                    if(users.some(u => u.email === newUser.email || u.id === newUser.id)) {
-                        this.showNotification('El email o número de identificación ya están registrados.');
-                        return;
-                    }
-
-                    users.push(newUser);
-                    DB.set('users', users);
-                    this.showNotification('Registro exitoso. Ahora puedes iniciar sesión.');
-                    this.closeAllModals();
-                    this.dom.registerForm.reset();
-                },
-
-                // Renderizado de contenido
-                renderHomePageContent() {
-                    const rooms = DB.get('rooms');
-                    this.dom.roomCarouselWrapper.innerHTML = rooms.map(room => `
-                        <div class="swiper-slide">
-                            <div class="rounded-lg overflow-hidden shadow-lg bg-white">
-                                <img src="${room.image}" alt="${room.name}" class="w-full h-64 object-cover">
-                                <div class="p-6">
-                                    <h3 class="font-bold text-xl mb-2 text-amber-900">${room.name}</h3>
-                                    <p class="text-gray-700 text-base">Perfecta para hasta ${room.maxOccupancy} personas.</p>
-                                </div>
-                            </div>
-                        </div>
-                    `).join('');
-                    
-                    new Swiper('.room-swiper', {
-                        slidesPerView: 1,
-                        spaceBetween: 30,
-                        loop: true,
-                        navigation: {
-                            nextEl: '.swiper-button-next',
-                            prevEl: '.swiper-button-prev',
-                        },
-                        breakpoints: {
-                            640: { slidesPerView: 2 },
-                            1024: { slidesPerView: 3 },
-                        }
-                    });
-                },
-                
-                // Lógica de Reservas
-                handleSearch() {
-                    const checkIn = document.getElementById('check-in').value;
-                    const checkOut = document.getElementById('check-out').value;
-                    const guests = parseInt(document.getElementById('guests').value);
-
-                    if (!checkIn || !checkOut) {
-                        this.showNotification('Por favor, selecciona fecha de llegada y salida.');
-                        return;
-                    }
-                    if (new Date(checkIn) >= new Date(checkOut)) {
-                        this.showNotification('La fecha de salida debe ser posterior a la de llegada.');
-                        return;
-                    }
-
-                    AppState.searchCriteria = { checkIn, checkOut, guests };
-                    
-                    const rooms = DB.get('rooms');
-                    const reservations = DB.get('reservations');
-
-                    const availableRooms = rooms.filter(room => {
-                        // Filtro 1: Capacidad
-                        if (room.maxOccupancy < guests) return false;
-
-                        // Filtro 2: Solapamiento de fechas
-                        const searchStart = new Date(checkIn);
-                        const searchEnd = new Date(checkOut);
-                        
-                        const isOverlapping = reservations
-                            .filter(r => r.roomId === room.id)
-                            .some(r => {
-                                const resStart = new Date(r.checkIn);
-                                const resEnd = new Date(r.checkOut);
-                                return (searchStart < resEnd && searchEnd > resStart);
-                            });
-                        
-                        return !isOverlapping;
-                    });
-                    
-                    this.renderAvailableRooms(availableRooms);
-                },
-
-                renderAvailableRooms(rooms) {
-                    if (rooms.length === 0) {
-                        this.dom.availabilityResults.innerHTML = `<p class="text-center text-gray-600">No hay habitaciones disponibles para los criterios seleccionados.</p>`;
-                        return;
-                    }
-                    
-                    const { checkIn, checkOut } = AppState.searchCriteria;
-                    const nights = (new Date(checkOut) - new Date(checkIn)) / (1000 * 60 * 60 * 24);
-
-                    this.dom.availabilityResults.innerHTML = `
-                        <h3 class="text-2xl font-bold text-center text-amber-800 mb-8 font-serif">Habitaciones Disponibles</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            ${rooms.map(room => `
-                                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
-                                    <img src="${room.image}" alt="${room.name}" class="w-full h-56 object-cover">
-                                    <div class="p-6 flex flex-col flex-grow">
-                                        <h4 class="font-bold text-xl text-amber-900">${room.name}</h4>
-                                        <p class="text-sm text-gray-500 mb-4">Máx. ${room.maxOccupancy} personas | ${room.beds} cama(s)</p>
-                                        <div class="flex-grow">
-                                            <ul class="text-sm text-gray-600 space-y-1 mb-4">
-                                                ${room.amenities.map(a => `<li>✓ ${a}</li>`).join('')}
-                                            </ul>
-                                        </div>
-                                        <div class="text-right mt-4">
-                                            <p class="text-lg font-bold text-amber-800">$${(room.pricePerNight * nights).toLocaleString('es-CO')}</p>
-                                            <p class="text-sm text-gray-500">${nights} noche(s)</p>
-                                            <button data-room-id="${room.id}" class="book-room-btn mt-4 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded-md w-full">Reservar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    `;
-                },
-                
-                handleBooking(roomId) {
-                    if (!AppState.currentUser) {
-                        this.showNotification('Debes iniciar sesión para hacer una reserva.');
-                        this.openModal('login-modal');
-                        return;
-                    }
-
-                    // Re-verificar disponibilidad
-                    const { checkIn, checkOut, guests } = AppState.searchCriteria;
-                    const reservations = DB.get('reservations');
-                    const searchStart = new Date(checkIn);
-                    const searchEnd = new Date(checkOut);
-                    const isStillAvailable = !reservations
-                        .filter(r => r.roomId == roomId)
-                        .some(r => (searchStart < new Date(r.checkOut) && searchEnd > new Date(r.checkIn)));
-
-                    if (!isStillAvailable) {
-                        this.showNotification('Lo sentimos, esta habitación ya no está disponible para las fechas seleccionadas.');
-                        this.handleSearch(); // Refrescar resultados
-                        return;
-                    }
-                    
-                    const room = DB.get('rooms').find(r => r.id == roomId);
-                    const nights = (searchEnd - searchStart) / (1000 * 60 * 60 * 24);
-                    const newReservation = {
-                        id: Date.now(),
-                        roomId: parseInt(roomId),
-                        userId: AppState.currentUser.id,
-                        checkIn,
-                        checkOut,
-                        guests,
-                        totalPrice: room.pricePerNight * nights
-                    };
-
-                    reservations.push(newReservation);
-                    DB.set('reservations', reservations);
-                    this.showNotification('¡Reserva confirmada con éxito!');
-                    this.navigateTo('profile');
-                },
-                
-                renderMyReservations() {
-                    const reservations = DB.get('reservations').filter(r => r.userId === AppState.currentUser.id);
-                    const rooms = DB.get('rooms');
-
-                    if(reservations.length === 0) {
-                        this.dom.myReservationsList.innerHTML = `<p>Aún no tienes reservas.</p>`;
-                        return;
-                    }
-
-                    this.dom.myReservationsList.innerHTML = reservations.map(res => {
-                        const room = rooms.find(r => r.id === res.roomId);
-                        return `
-                            <div class="border p-4 rounded-md mb-4 flex justify-between items-center flex-wrap">
-                                <div>
-                                    <h4 class="font-bold">${room.name}</h4>
-                                    <p>Llegada: ${res.checkIn} | Salida: ${res.checkOut}</p>
-                                    <p>Huéspedes: ${res.guests} | Total: $${res.totalPrice.toLocaleString('es-CO')}</p>
-                                </div>
-                                <button data-reservation-id="${res.id}" class="user-cancel-reservation-btn bg-red-500 hover:bg-red-600 text-white text-sm font-bold py-2 px-3 rounded-md mt-2 md:mt-0">Cancelar</button>
-                            </div>
-                        `;
-                    }).join('');
-                },
-                
-                handleCancelReservation(reservationId, isAdmin) {
-                    let reservations = DB.get('reservations');
-                    reservations = reservations.filter(r => r.id != reservationId);
-                    DB.set('reservations', reservations);
-                    this.showNotification('Reserva cancelada exitosamente.');
-                    
-                    if(isAdmin) {
-                        this.renderAdminDashboard();
-                    } else {
-                        this.renderMyReservations();
-                    }
-                },
-                
-                // Panel de Administración
-                renderAdminDashboard() {
-                    this.renderAdminRooms();
-                    this.renderAdminReservations();
-                },
-
-                renderAdminRooms() {
-                    const rooms = DB.get('rooms');
-                    this.dom.adminRoomList.innerHTML = rooms.map(room => `
-                        <div class="border p-4 rounded-md flex justify-between items-center">
-                            <span>${room.name} - $${room.pricePerNight.toLocaleString('es-CO')}/noche</span>
-                            <div>
-                                <button data-room-id="${room.id}" class="edit-room-btn bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-bold py-1 px-2 rounded-md">Editar</button>
-                                <button data-room-id="${room.id}" class="delete-room-btn bg-red-500 hover:bg-red-600 text-white text-sm font-bold py-1 px-2 rounded-md">Eliminar</button>
-                            </div>
-                        </div>
-                    `).join('');
-                },
-                
-                renderAdminReservations() {
-                    const reservations = DB.get('reservations');
-                    const rooms = DB.get('rooms');
-                    const users = DB.get('users');
-                    
-                    if (reservations.length === 0) {
-                        this.dom.adminReservationList.innerHTML = `<p>No hay reservas activas.</p>`;
-                        return;
-                    }
-                    
-                    this.dom.adminReservationList.innerHTML = reservations.map(res => {
-                        const room = rooms.find(r => r.id === res.roomId);
-                        const user = users.find(u => u.id === res.userId);
-                        return `
-                             <div class="border p-4 rounded-md">
-                                <p><span class="font-bold">Habitación:</span> ${room?.name || 'No encontrada'}</p>
-                                <p><span class="font-bold">Cliente:</span> ${user?.name || 'No encontrado'} (${user?.email})</p>
-                                <p><span class="font-bold">Fechas:</span> ${res.checkIn} a ${res.checkOut}</p>
-                                <button data-reservation-id="${res.id}" class="admin-cancel-reservation-btn bg-red-500 hover:bg-red-600 text-white text-sm font-bold py-1 px-2 rounded-md mt-2">Cancelar Reserva</button>
-                            </div>
-                        `;
-                    }).join('');
-                },
-
-                openRoomModal(roomId = null) {
-                    this.dom.roomForm.reset();
-                    const title = document.getElementById('room-modal-title');
-                    const idInput = document.getElementById('room-id');
-
-                    if (roomId) {
-                        const rooms = DB.get('rooms');
-                        const room = rooms.find(r => r.id == roomId);
-                        title.textContent = 'Editar Habitación';
-                        idInput.value = room.id;
-                        document.getElementById('room-name').value = room.name;
-                        document.getElementById('room-beds').value = room.beds;
-                        document.getElementById('room-maxOccupancy').value = room.maxOccupancy;
-                        document.getElementById('room-pricePerNight').value = room.pricePerNight;
-                        document.getElementById('room-amenities').value = room.amenities.join(', ');
-                        document.getElementById('room-image').value = room.image;
-                    } else {
-                        title.textContent = 'Agregar Nueva Habitación';
-                        idInput.value = '';
-                    }
-                    this.openModal('room-modal');
-                },
-
-                handleRoomSave(e) {
-                    e.preventDefault();
-                    let rooms = DB.get('rooms');
-                    const roomId = document.getElementById('room-id').value;
-                    const roomData = {
-                        name: document.getElementById('room-name').value,
-                        beds: parseInt(document.getElementById('room-beds').value),
-                        maxOccupancy: parseInt(document.getElementById('room-maxOccupancy').value),
-                        pricePerNight: parseInt(document.getElementById('room-pricePerNight').value),
-                        amenities: document.getElementById('room-amenities').value.split(',').map(s => s.trim()),
-                        image: document.getElementById('room-image').value,
-                    };
-                    
-                    if(roomId) { // Editar
-                        const index = rooms.findIndex(r => r.id == roomId);
-                        rooms[index] = { ...rooms[index], ...roomData };
-                    } else { // Crear
-                        roomData.id = Date.now();
-                        rooms.push(roomData);
-                    }
-
-                    DB.set('rooms', rooms);
-                    this.showNotification('Habitación guardada correctamente.');
-                    this.closeAllModals();
-                    this.renderAdminRooms();
-                    this.renderHomePageContent(); // Actualizar carrusel
-                },
-
-                handleDeleteRoom(roomId) {
-                     if (confirm('¿Estás seguro de que quieres eliminar esta habitación? Esto no se puede deshacer.')) {
-                        let rooms = DB.get('rooms');
-                        rooms = rooms.filter(r => r.id != roomId);
-                        DB.set('rooms', rooms);
-                        this.showNotification('Habitación eliminada.');
-                        this.renderAdminRooms();
-                        this.renderHomePageContent(); // Actualizar carrusel
-                    }
-                }
-            };
-
-            App.init();
-        });
-    </script>
+    <script src="js/app.js"></script>
 </body>
 </html>

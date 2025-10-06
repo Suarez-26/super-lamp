@@ -1,0 +1,237 @@
+/* ===== Tipografía y colores ===== */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fdfbf6; /* Crema suave */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== Navbar ===== */
+.navbar-contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(255,255,255,0.95);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: #0b1d51; /* Azul profundo */
+    margin: 0;
+}
+
+.navegacion {
+    display: flex;
+    gap: 40px;
+}
+
+.navegacion a {
+    text-decoration: none;
+    color: #0b1d51;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navegacion a:hover {
+    color: #d4af37; /* Dorado */
+}
+
+.usuario-saludo {
+    font-weight: bold;
+    color: #0b1d51;
+}
+/*==== Landing Page ====*/
+.seccion-hero {
+  height: 70vh;
+  background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80') no-repeat center center/cover;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.hero-contenido h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-contenido p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.btn-registro {
+  background: #d97706;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.btn-registro:hover {
+  background: #b45309;
+}
+/* ===== Carrusel de Habitaciones  ===== */
+.carrusel {
+    padding: 50px 0;
+    background: linear-gradient(to bottom, #e0e0e0, #fdfbf6);
+    text-align: center;
+}
+
+.carrusel h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #0b1d51;
+}
+
+.carrusel-imagenes {
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+}
+
+.carrusel-imagenes img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 25px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    transition: transform 0.5s;
+}
+
+.carrusel-imagenes img:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Servicios ===== */
+.seccion-servicios {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+}
+
+.seccion-servicios h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contenedor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.servicio-card {
+    background: transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.servicio-card:hover {
+    transform: scale(1.02);
+}
+
+.servicio-card img {
+    width: 100%;
+    height: auto;
+}
+
+.servicio-contenido {
+    padding: 1rem;
+}
+
+.servicio-contenido h2 {
+    margin: 0 0 0.5rem;
+}
+
+/* ===== Formularios ===== */
+.formulario-reserva, .formulario-login, .formulario-registro, .admin-habitaciones {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 25px;
+    background-color: #fff;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    transition: border 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #d4af37;
+    outline: none;
+}
+
+/* ===== Botones ===== */
+button {
+    background: linear-gradient(135deg, #d4af37, #f0e6d2);
+    color: #0b1d51;
+    font-weight: bold;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #f0e6d2, #d4af37);
+}
+
+/* ===== Footer ===== */
+.pie-pagina {
+    background-color: #0b1d51;
+    color: #fdfbf6;
+    text-align: center;
+    padding: 25px;
+}
+
+/* ===== Tarjetas de habitaciones ===== */
+.tarjeta-habitacion {
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+/* ===== Responsive ===== */
+@media(max-width: 768px){
+    .tarjetas-servicios, .carrusel-imagenes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-contenedor {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

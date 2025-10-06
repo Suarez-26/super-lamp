@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Hotel El Rincón del Carmen</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--barra de navegación-->
+<header class="cabecera">
+    <div class="navbar-contenedor">
+        <div class="logo">
+            <h1>Hotel El Rincón del Carmen</h1>
+        </div>
+        <nav class="navegacion">
+            <a href="index.html">Inicio</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+        <div class="usuario-saludo" id="usuario-saludo"></div>
+    </div>
+</header>
+
+    <main>
+        <section class="formulario-registro">
+            <form id="formulario-registro">
+                <label>Nombre completo: <input type="text" id="nombre" required></label>
+                <label>Identificación: <input type="text" id="identificacion" required></label>
+                <label>Nacionalidad: <input type="text" id="nacionalidad" required></label>
+                <label>Email: <input type="email" id="email" required></label>
+                <label>Teléfono: <input type="text" id="telefono" required></label>
+                <label>Contraseña: <input type="password" id="password" required></label>
+                <button type="submit">Registrarse</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <p>&copy; 2025 Hotel El Rincón del Carmen</p>
+    </footer>
+
+    <script src="js/usuarios.js"></script>
+    <script>
+        document.getElementById("formulario-registro").addEventListener("submit", registrarUsuario);
+    </script>
+</body>
+</html>

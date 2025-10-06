@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Hotel El Rincón del Carmen</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--barra de navegación-->
+<header class="cabecera">
+    <div class="navbar-contenedor">
+        <div class="logo">
+            <h1>Hotel El Rincón del Carmen</h1>
+        </div>
+        <nav class="navegacion">
+            <a href="index.html">Inicio</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+        <div class="usuario-saludo" id="usuario-saludo"></div>
+    </div>
+</header>
+
+    <main>
+        <section class="formulario-login">
+            <form id="formulario-login">
+                <label>Email: <input type="email" id="email" required></label>
+                <label>Contraseña: <input type="password" id="password" required></label>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <p>&copy; 2025 Hotel El Rincón del Carmen</p>
+    </footer>
+
+    <script src="js/usuarios.js"></script>
+    <script>
+        document.getElementById("formulario-login").addEventListener("submit", loginUsuario);
+    </script>
+</body>
+</html>
