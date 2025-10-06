@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - Hotel El Rincón del Carmen</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--barra de navegación-->
+<header class="cabecera">
+    <div class="navbar-contenedor">
+        <div class="logo">
+            <h1>Hotel El Rincón del Carmen</h1>
+        </div>
+        <nav class="navegacion">
+            <a href="index.html">Inicio</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="#" onclick="logoutUsuario()">Cerrar sesión</a>
+        </nav>
+        <div class="usuario-saludo" id="usuario-saludo"></div>
+    </div>
+</header>
+    
+    <main>
+        <section class="admin-habitaciones">
+            <h2>Gestión de Habitaciones</h2>
+            <button onclick="agregarHabitacion()">Agregar nueva habitación</button>
+            <div id="admin-habitaciones"></div>
+        </section>
+
+        <section class="admin-reservas">
+            <h2>Gestión de Reservas</h2>
+            <p>Para cancelar reservas de clientes, se puede eliminar la reserva desde la sección de habitaciones.</p>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <p>&copy; 2025 Hotel El Rincón del Carmen</p>
+    </footer>
+
+    <script src="js/usuarios.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
